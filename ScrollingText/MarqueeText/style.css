@@ -1,0 +1,77 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 100px;
+  background-color: rgb(227, 227, 227);
+}
+
+.stock-ticker {
+  font-size: 15px;
+  padding-block: 8px; /*The padding-block property sets padding on both the top and bottom of an element*/
+  border-block: 1px solid black; /*The border-block property sets the top and bottom borders of an element*/
+  overflow-x: hidden;
+  display: flex;
+  gap: 2rem;
+}
+
+.stock-ticker ul {
+  min-width: 100%;
+  list-style: none;
+  display: flex;
+  flex-shrink: 0; /*When you want to prevent shrinking of an element inside a flexbox.*/
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  animation: scroll 20s linear infinite;
+}
+/* animation */
+@keyframes scroll {
+  from {
+    transform: translateX(90vw); /* Start from outside the screen */
+  }
+
+  to {
+    transform: translateX(-100%); /* to completely left*/
+  }
+}
+
+
+
+.stock-ticker:hover ul {
+  animation-play-state: paused;
+}
+
+.stock-ticker .company,
+.stock-ticker .price {
+  font-weight: bold;
+}
+
+.stock-ticker .price {
+  margin-inline: 4px; /* Adds 4px margin on both left & right */
+}
+
+.stock-ticker .plus::before {
+  content: "↑";
+}
+
+.stock-ticker .minus::before {
+  content: "↓";
+}
+
+.stock-ticker .plus .change,
+.stock-ticker .plus::before {
+  color: #089981;
+}
+
+.stock-ticker .minus .change,
+.stock-ticker .minus::before {
+  color: #f23645;
+}

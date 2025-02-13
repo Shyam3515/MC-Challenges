@@ -1,0 +1,25 @@
+.accordian {
+  border: 1px solid greenyellow;
+}
+
+.sectionItem {
+  border: 1px solid greenyellow;
+}
+.sectionHeader {
+  background-color: #f5f5f5;
+  padding: 10px;
+  cursor: pointer;
+}
+.sectionItem.active .sectionHeader {
+  background-color: aquamarine;
+}
+.sectionContent {
+  padding: 10px;
+  display: none;
+}
+.active {
+  background-color: aquamarine;
+}
+.sectionItem.active .sectionContent {
+  background-color: rgb(75, 75, 75);
+}

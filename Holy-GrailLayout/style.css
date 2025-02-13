@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+header,
+footer {
+  background-color: #333;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  background-color: #675d5d;
+}
+
+aside {
+  width: 200px;
+  padding: 20px;
+  color: black;
+}
+.left {
+  background-color: lightblue;
+}
+.right {
+  background-color: lightpink;
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    flex-direction: column;
+  }
+  aside {
+    width: 100%;
+  }
+}

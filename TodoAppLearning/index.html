@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Todo App</title>
+  </head>
+  <body>
+    <div class="heading">
+      <h1>To-Do App Using JavaScript</h1>
+    </div>
+
+    <!-- Wrapper -->
+    <div class="wrapper">
+      <!-- Input -->
+      <div class="task-input">
+        <input type="text" placeholder="New task" id="txtItem" />
+        <button onclick="saveTask()" id="save">save</button>
+        <button onclick="updateTask()" id="update">update</button>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <div class="filters">
+          <span class="active" id="all">All</span>
+          <span id="pending">Pending</span>
+          <span id="pending">In-Progress</span>
+          <span id="completed">Closed</span>
+        </div>
+        <button class="clear-btn" onclick="removeAll()">Clear All</button>
+      </div>
+      <hr />
+
+      <!-- Lists -->
+      <ul class="task-box" id="myTaskList">
+        <!-- <li class="task">
+          <label><p>Name</p></label>
+          <div class="settings">
+            <span class="edit">✏️</span>
+            <span class="delete">❌</span>
+          </div>
+        </li>
+        <li class="task">
+          <label><p>Name</p></label>
+          <div class="settings">
+            <span class="edit">✏️</span>
+            <span class="delete">❌</span>
+          </div>
+        </li> -->
+      </ul>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
