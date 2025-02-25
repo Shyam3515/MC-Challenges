@@ -1,0 +1,34 @@
+/* Blink Cursor Effect */
+#myDiv {
+  width: 200px;
+  height: 50px;
+  border: 1px solid black;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  overflow: hidden;
+  padding: 5px;
+  position: relative;
+}
+
+#myDiv::after {
+  content: "|";
+  position: absolute;
+  left: 10px;
+  animation: blink 0.7s infinite;
+}
+
+#myDiv:not(:focus)::after {
+  content: "";
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

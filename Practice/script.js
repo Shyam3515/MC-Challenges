@@ -8,22 +8,22 @@ document.addEventListener("DOMContentLoaded", () => {
   let tabActive = tabsData[0].id;
 
   function renderTabs() {
-    let container = document.querySelector(".container");
+    let container = document.querySelector(".tabContainer");
     let tabs = document.querySelector(".tabs");
     let tabContentContainer = document.querySelector(".tabContent");
 
     tabsData.forEach((tab) => {
       let tabButton = document.createElement("button");
-      tabButton.className = "tablinks";
+      tabButton.className = "tabLinks";
       tabButton.innerText = tab.name;
       tabButton.setAttribute("data-tab", tab.id);
       tabs.appendChild(tabButton);
 
-      // Tab content
+      //tab
       let tabCont = document.createElement("div");
-      tabCont.innerHTML = `<h3>${tab.name}</h3> <p>${tab.content}</p>`;
-      tabCont.className = "tabContents";
+      tabCont.innerHTML = `<h3>${tab.name}</h3>${tab.content}`;
       tabCont.id = tab.id;
+      tabCont.className = "tabContents";
       tabContentContainer.appendChild(tabCont);
 
       container.appendChild(tabs);
@@ -31,9 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     tabs.addEventListener("click", (event) => {
-      if (event.target.matches(".tablinks")) {
-        console.log(event.target.matches(".tablinks")); //true
-        const tabId = event.target.getAttribute("data-tab");
+      if (event.target.matches(".tabLinks")) {
+        let tabId = event.target.getAttribute("data-tab");
 
         if (tabId !== tabActive) {
           openTab(tabId);
@@ -42,27 +41,23 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
-  //we have given same tabId for both tabs and content, with that ID we can make them active if not active
+  // openTab
   function openTab(tabId) {
-    const tabLinks = document.querySelectorAll(".tablinks");
+    const tabLinks = document.querySelectorAll(".tabLinks");
     const tabContents = document.querySelectorAll(".tabContents");
 
     tabLinks.forEach((tab) => tab.classList.remove("active"));
     tabContents.forEach((tab) => tab.classList.remove("active"));
 
-    console.log(tabId);
-    document.getElementById(tabId).classList.add("active"); //content
-    document
-      .querySelector(`button[data-tab="${tabId}"]`)
-      .classList.add("active");
+    document.getElementById(tabId).classList.add("active");
+    document.querySelector(`button[data-tab=${tabId}`).classList.add("active");
   }
 
   renderTabs();
 
-  // this is to display the first tab
+  //   for start
   document.getElementById(tabActive).classList.add("active");
   document
-    .querySelector(`button[data-tab="${tabActive}"]`)
+    .querySelector(`button[data-tab=${tabActive}]`)
     .classList.add("active");
 });

@@ -89,7 +89,7 @@ function editTask(event) {
   console.log("Object: ", obj);
   taskInput.value = obj.taskName;
   editTaskId = todoListArray.findIndex((task) => task.taskId === taskId);
-  console.log(editTaskId);
+  // console.log(editTaskId);
   save.style.display = "none";
   update.style.display = "block";
 }

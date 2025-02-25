@@ -1,0 +1,32 @@
+.tabContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tabs {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.tabLinks {
+  width: 200px;
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.tabLinks:hover {
+  background-color: #666161;
+}
+.tabLinks.active {
+  background-color: #ddd;
+  color: #333;
+}
+.tabContents {
+  display: none;
+}
+
+.tabContents.active {
+  display: block;
+}

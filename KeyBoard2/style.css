@@ -1,0 +1,75 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+h1 {
+  background: linear-gradient(to right, rgb(234, 0, 255), rgb(0, 255, 17));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.keyBoardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.inputContainer {
+  width: 300px;
+  position: relative;
+  padding: 3px; /* Creates space for the gradient border */
+  border-radius: 6px; /* Rounded corners */
+  background: linear-gradient(
+    to right,
+    rgb(0, 255, 17),
+    rgb(234, 0, 255)
+  ); /* Gradient border */
+}
+
+.inputContainer input {
+  width: 100%;
+  padding: 8px 14px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: black;
+  color: rgb(30, 167, 96);
+  border-radius: 4px;
+  position: relative;
+  display: block;
+}
+
+.keyBoardGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 120px);
+  padding: 32px;
+  border: 2px solid rgb(30, 167, 96);
+  gap: 18px;
+  border-radius: 8px;
+}
+
+.keyBoardGrid span {
+  padding: 20px;
+  width: 100%;
+  border: 1px solid rgb(234, 0, 255);
+  text-align: center;
+  border-radius: inherit;
+  font-size: 20px;
+  cursor: pointer !important;
+  color: rgb(0, 255, 123);
+}
+
+.active {
+  background-color: rgb(114, 186, 162);
+  color: rgb(237, 214, 239) !important;
+}
