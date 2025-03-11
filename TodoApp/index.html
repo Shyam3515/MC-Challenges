@@ -8,13 +8,17 @@
   </head>
   <body>
     <h1>Todo App</h1>
-    <form id="todo-form">
-      <input type="text" placeholder="Enter your task" id="todo-input" />
-      <button type="submit" id="add-btn">Add todo</button>
-      <button type="submit" id="edit-btn">Update todo</button>
-    </form>
-    <ul id="todo-list"></ul>
+    <div class="todo-container">
+      <div id="todo-div">
+        <input type="text" placeholder="Enter your task" id="todo-input" />
+        <button type="submit" id="add-btn">Add todo</button>
+        <button type="submit" id="update-btn">Update todo</button>
+      </div>
 
-    <script src="script1.js"></script>
+      <!-- Todo container -->
+      <ul id="todo-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

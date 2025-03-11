@@ -1,0 +1,25 @@
+Final Thoughts
+✅ Fixed background issue → background-attachment: fixed;
+✅ Divs stay in position → Use % for positioning, vw/vh for sizing
+✅ More responsive → No need for too many manual adjustments
+
+
+Here’s your refined and optimized version of the CSS code with all the fixes applied:
+✅ Improvements:
+Fixed background image for 768px - 993px (background-attachment: fixed;).
+Used percentage (%) values for better positioning.
+Used vw & vh units for responsive div sizes.
+Ensured consistency in border sizes for different resolutions.
+
+🚀 Changes & Fixes:
+✅ Fixed Background Image → background-attachment: fixed;
+✅ Repositioned Divs Responsively → Used % instead of px for left/top positioning
+✅ Made Div Sizes Responsive → Used vh and vw instead of fixed pixel values
+✅ Border Adjustments → Decreased border size in the media query for better scaling
+✅ Consistent Styling → Removed redundant styles for better readability
+
+🔎 Expected Results:
+📌 Background stays fixed between 768px - 993px
+📌 Divs stay in position without shifting drastically
+📌 Div sizes scale dynamically on different screens
+📌 No need for multiple media queries for different resolutions

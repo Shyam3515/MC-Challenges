@@ -8,3 +8,20 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+span {
+  margin-left: 10px;
+  cursor: pointer;
+  border: 1px solid gray;
+  padding: 2px;
+}
+
+#todo-div {
+  display: flex;
+  gap: 12px;
+}
+
+ul li {
+  padding: 10px;
+  border-bottom: 1px solid gray;
+}

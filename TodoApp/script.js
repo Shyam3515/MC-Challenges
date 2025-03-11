@@ -1,81 +1,93 @@
+const todoContainer = document.querySelector(".todo-container");
 const todoInput = document.getElementById("todo-input");
 const todoList = document.getElementById("todo-list");
-const todoForm = document.getElementById("todo-form");
-const AddBtn = document.getElementById("add-btn");
-const EditBtn = document.getElementById("edit-btn");
-EditBtn.style.display = "none";
+const todoForm = document.getElementById("todo-div");
+const addBtn = document.getElementById("add-btn");
+const editBtn = document.getElementById("update-btn");
+editBtn.style.display = "none";
 
-const todos = [];
-todoForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-});
+let storeTodos = localStorage.getItem("todos");
+let todos = [];
+let count = 1;
+if (storeTodos !== null) {
+  todos = JSON.parse(storeTodos);
+  //hre map returns a new array of count values [1,2,3] and spreading them(0,1,2,3,..) for getting max element
+  count = Math.max(0, ...todos.map((todo) => todo.count)) + 1;
 
-AddBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  addTodo();
-});
-
-function addTodo() {
-  const todo = todoInput.value.trim();
-  todos.push(todo);
-
-  //rendering
   renderTodos();
-
-  //clearing inputs
-  todoInput.value = "";
-  console.log(todos);
 }
+let editId;
+
+addBtn.addEventListener("click", (e) => {
+  if (todoInput.value.trim() !== "") {
+    const todoObj = {
+      todo: todoInput.value,
+      count: count++,
+    };
+    todos.push(todoObj);
+    todoInput.value = "";
+
+    localStorage.setItem("todos", JSON.stringify(todos));
+    renderTodos();
+  } else {
+    alert("Enter valid Input...");
+  }
+});
 
 function renderTodos() {
   todoList.innerHTML = "";
-  console.log(todos);
-  todos.map((todo, index) => {
-    const list = document.createElement("li");
-    const task = document.createElement("span");
-    const edit = document.createElement("button");
-    const delet = document.createElement("button");
+  todos.forEach((todoObj) => {
+    const dynamicLi = document.createElement("li");
+    dynamicLi.textContent = todoObj.todo;
+    dynamicLi.id = todoObj.count;
+    //edit
+    const editBtn = document.createElement("span");
+    editBtn.id = todoObj.count;
+    editBtn.innerText = "✏️";
+    //delete
+    const delBtn = document.createElement("span");
+    delBtn.id = todoObj.count;
+    delBtn.innerText = "❌";
 
-    task.innerText = todo;
-    edit.innerText = "✏️";
-    delet.innerText = "❌";
-    list.appendChild(task);
-    list.appendChild(edit);
-    list.appendChild(delet);
-
-    todoList.appendChild(list);
-
-    list.addEventListener("click", (e) => {
-      checkEditDel(index, e.target);
+    dynamicLi.appendChild(editBtn);
+    dynamicLi.appendChild(delBtn);
+    todoList.appendChild(dynamicLi);
+    //event Delegation
+    dynamicLi.addEventListener("click", (e) => {
+      changeInputDiv(e);
     });
   });
 }
+todoContainer.appendChild(todoList);
 
-function checkEditDel(index, e) {
-  console.log(index, e.textContent);
+//Based on ED checking...
+function changeInputDiv(e) {
+  console.log(e.target);
+  if (e.target.innerText === "❌") {
+    const todoObj = todos.find((obj) => e.target.id === obj.count);
+    todos.splice(todoObj, 1);
+    localStorage.setItem("todos", JSON.stringify(todos));
 
-  if (e.textContent === "✏️") {
-    updateEdited(index);
     renderTodos();
-  } else {
-    todos.splice(index, 1);
-    renderTodos();
+  } else if (e.target.innerText === "✏️") {
+    editBtn.style.display = "block";
+    addBtn.style.display = "none";
+
+    editId = todos.findIndex((obj) => Number(e.target.id) === obj.count);
+    todoInput.value = todos[editId].todo;
   }
 }
 
-function updateEdited(index) {
-  todoInput.focus();
-  todoInput.value = todos[index];
-  AddBtn.style.display = "none";
-  EditBtn.style.display = "inline-block";
+editBtn.addEventListener("click", () => {
+  updateInput(editId);
+});
+function updateInput(id) {
+  todos[id].todo = todoInput.value;
 
-  EditBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    console.log(todos);
-    todos[index] = todoInput.value;
-    AddBtn.style.display = "inline-block";
-    EditBtn.style.display = "none";
-  });
+  editBtn.style.display = "none";
+  addBtn.style.display = "block";
+  todoInput.value = "";
+
+  localStorage.setItem("todos", JSON.stringify(todos));
+  renderTodos();
 }
-
-

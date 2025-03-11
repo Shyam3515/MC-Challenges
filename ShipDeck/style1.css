@@ -1,0 +1,247 @@
+/* Global Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Ensures padding/margin don't affect element sizes */
+}
+
+body {
+  background-color: black;
+}
+
+/* Background Image Container */
+.shipDeck {
+  background-image: url("./11111.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 70vh;
+  width: 100vw;
+  position: relative; /* Needed for absolute positioning of child elements */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Common Flex Utility */
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Div Styles */
+.div1,
+.div2,
+.div3,
+.div4,
+.div5,
+.div6,
+.div7,
+.div8,
+.div9,
+.div10 {
+  position: absolute;
+  background-color: rgb(225, 220, 200);
+  border: 8px solid black;
+}
+
+/* Individual Div Positions */
+.div1 {
+  left: 121px;
+  top: 59px;
+  height: 46px;
+  width: 73px;
+}
+
+.div2 {
+  left: 208px;
+  top: 60px;
+  height: 47px;
+  width: 58px;
+}
+
+.div3 {
+  left: 383.8px;
+  top: 117px;
+  background-color: rgb(190, 218, 206);
+  height: 130px;
+  width: 200px;
+}
+
+.div4 {
+  left: 43.3%;
+  top: 112px;
+  height: 100px;
+  width: 146px;
+}
+
+.div5 {
+  top: 30px;
+  right: 544px;
+  background-color: rgb(202, 212, 185);
+  height: 80px;
+  width: 65px;
+}
+
+.div6 {
+  top: 36px;
+  right: 260.5px;
+  background-color: rgb(202, 212, 185);
+  height: 78px;
+  width: 58px;
+}
+
+.div7 {
+  top: 120px;
+  right: 120px;
+  height: 87px;
+  width: 60px;
+}
+
+.div8 {
+  top: 222px;
+  right: 398px;
+  background-color: rgb(202, 212, 185);
+  height: 84px;
+  width: 63px;
+}
+
+.div9 {
+  top: 228px;
+  right: 618px;
+  background-color: rgb(202, 212, 185);
+  height: 73px;
+  width: 71px;
+}
+
+.div10 {
+  left: 124px;
+  top: 214px;
+  height: 62px;
+  width: 135px;
+}
+
+/* Display Box */
+.display {
+  background-color: rgb(102, 169, 227);
+  width: max-content;
+  inset: 0;
+  margin: auto;
+  margin-top: 30px;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 3px;
+}
+
+/* Active State */
+.active {
+  border: 8px solid rgb(26, 209, 26) !important;
+}
+
+/* ------------------- MEDIA QUERY (768px - 993px) ------------------- */
+@media (min-width: 572px) and (max-width: 1024px) {
+  .shipDeck {
+    height: 70vh;
+    width: 100vw;
+
+    background-attachment: fixed; /* Keeps background fixed */
+    background-size: 100% 100%; /* Forces image to stretch and cover fully */
+    background-position: center center; /* Centers the image */
+  }
+
+  /* Adjusted Div Positions & Sizes for Smaller Screens */
+  .div1 {
+    left: 7.9%;
+    top: 15.4%;
+    height: 8.1vh;
+    width: 4.8vw;
+    border: 5px solid black;
+    font-size: 8px;
+  }
+
+  .div2 {
+    left: 13.5%;
+    top: 15%;
+    height: 9vh;
+    width: 3.5vw;
+    border: 5px solid black;
+    font-size: 8px;
+  }
+
+  .div3 {
+    left: 24.8%;
+    top: 29.5%;
+    height: 24vh;
+    width: 13.5vw;
+    border: 5px solid black;
+    font-size: 8px;
+  }
+
+  .div4 {
+    left: 43.3%;
+    top: 27.5%;
+    height: 19vh;
+    width: 10vw;
+    border: 5px solid black;
+  }
+
+  .div5 {
+    top: 6.7%;
+    right: 35%;
+    height: 15.1vh;
+    width: 5.1vw;
+    border: 5px solid black;
+    font-size: 8px;
+  }
+
+  .div6 {
+    top: 6.5%;
+    right: 16.9%;
+    height: 16vh;
+    width: 4vw;
+    border: 5px solid black;
+    font-size: 8px;
+  }
+
+  .div7 {
+    top: 31%;
+    right: 7.6%;
+    height: 16vh;
+    width: 4vw;
+    border: 5px solid black;
+    font-size: 8px;
+  }
+
+  .div8 {
+    top: 56%;
+    right: 25.6%;
+    height: 17vh;
+    width: 4.5vw;
+    border: 5px solid black;
+    font-size: 8px;
+  }
+
+  .div9 {
+    top: 59%;
+    right: 39%;
+    height: 13vh;
+    width: 6vw;
+    border: 5px solid black;
+    font-size: 8px;
+  }
+
+  .div10 {
+    left: 8%;
+    top: 55%;
+    height: 12vh;
+    width: 9vw;
+    border: 5px solid black;
+    font-size: 8px;
+  }
+
+  /* Active state adjustment for smaller screens */
+  .active {
+    border: 5px solid rgb(26, 209, 26) !important;
+  }
+}

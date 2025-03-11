@@ -12,6 +12,7 @@ taskHead();
 let isLocalDataPresent = localStorage.getItem("todoTaskList");
 if (isLocalDataPresent !== null) {
   todoListArray = JSON.parse(isLocalDataPresent);
+  //As we are using count as ID, we need to start from where we have stopped, instead of starting from '0' again
   count = Math.max(0, ...todoListArray.map((task) => task.taskId)) + 1; // Update count
   renderTaskLists();
 }
@@ -89,7 +90,7 @@ function editTask(event) {
   console.log("Object: ", obj);
   taskInput.value = obj.taskName;
   editTaskId = todoListArray.findIndex((task) => task.taskId === taskId);
-  // console.log(editTaskId);
+
   save.style.display = "none";
   update.style.display = "block";
 }
@@ -108,6 +109,7 @@ function deleteTask(event) {
 function removeAll() {
   todoListArray.splice(0);
   localStorage.removeItem("todoTaskList"); // Clear storage
+  count = 1;
   renderTaskLists();
   taskHead();
 }
