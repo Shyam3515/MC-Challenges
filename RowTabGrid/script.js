@@ -71,8 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
 
     rowTools: {
-      row: 1,
-      totalRows: 5,
+      row: 0,
       prevIndex: 0,
     },
   };
