@@ -157,3 +157,12 @@ document.addEventListener("DOMContentLoaded", () => {
     rightSectionP.innerText = rowDataJSON.rows[clickedId - 1].content;
   }
 });
+
+/**
+ * steps to folow;
+// 1) Get the proper data
+// 2) Render the content to be shown
+// 3) Show the first tab with active class
+// 4) On click on button, get the 'ID' of tab by the event.
+// 5) with the help of id, update the text and tabFocus by removing the prevTabs Focus by prevIndex variable
+ */
